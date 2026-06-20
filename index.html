@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semakan OT Pegawai Kumpulan B</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 450px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 60px auto; }
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 5px; }
+        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 25px; font-size: 14px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; color: #34495e; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        button { width: 100%; padding: 12px; background-color: #3498db; border: none; color: white; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        button:hover { background-color: #2980b9; }
+        .result-box { margin-top: 25px; padding: 15px; border-radius: 8px; text-align: center; display: none; }
+        .success { background-color: #e8f8f5; border: 1px solid #2ecc71; color: #27ae60; }
+        .error { background-color: #fdedec; border: 1px solid #e74c3c; color: #c0392b; }
+        .ot-number { font-size: 32px; font-weight: bold; margin-top: 10px; display: block; color: #2c3e50; }
+        .loading { text-align: center; display: none; color: #7f8c8d; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Jumlah OT Pegawai</h2>
+    <p class="subtitle">Kumpulan B</p>
+    
+    <form id="semakForm">
+        <div class="form-group">
+            <label for="nama">Nama Penuh:</label>
+            <input type="text" id="nama" required placeholder="Masukkan Nama Penuh">
+        </div>
+        
+        <div class="form-group">
+            <label for="nogaji">No. Gaji:</label>
+            <input type="text" id="nogaji" required placeholder="Masukkan No. Gaji">
+        </div>
+        
+        <button type="submit">Semak Jumlah OT</button>
+    </form>
+
+    <div id="loading" class="loading">Sila tunggu, sedang menyemak database...</div>
+    <div id="resultBox" class="result-box"></div>
+</div>
+
+<script>
+    document.getElementById('semakForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nama = document.getElementById('nama').value;
+        const nogaji = document.getElementById('nogaji').value;
+        const loading = document.getElementById('loading');
+        const resultBox = document.getElementById('resultBox');
+
+        // ⚠️ MASUKKAN URL WEB APP YANG AWAK COPY TADI DI BAWAH KANDUNGAN INI
+        const webAppURL =  "https://script.google.com/macros/s/AKfycbwFTeZUrGtZYxrvySe0yAnZvnk4oiLqtt6jUKMmTQmSqToSj4pNDE80PSnpWAgOCMyKOw/exec"; 
+
+        loading.style.display = "block";
+        resultBox.style.display = "none";
+
+        const finalURL = `${webAppURL}?nama=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(nogaji)}`;
+
+        fetch(finalURL)
+        .then(response => response.json())
+        .then(data => {
+            loading.style.display = "none";
+            resultBox.style.display = "block";
+
+            if (data.status === "success") {
+                resultBox.className = "result-box success";
+                resultBox.innerHTML = `Rekod dijumpai!<br>Jumlah Jam OT Anda ialah: <span class="ot-number">${data.jumlah_ot} Jam</span>`;
+            } else {
+                resultBox.className = "result-box error";
+                resultBox.innerHTML = `⚠️ Rekod Tidak Dijumpai.<br><small>Sila pastikan ejaan Nama Penuh dan No. Gaji adalah betul.</small>`;
+            }
+        })
+        .catch(error => {
+            loading.style.display = "none";
+            resultBox.style.display = "block";
+            resultBox.className = "result-box error";
+            resultBox.innerHTML = `Ralat sistem! Gagal berhubung dengan database.`;
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
