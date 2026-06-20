@@ -59,8 +59,10 @@
 
         loading.style.display = "block";
         resultBox.style.display = "none";
+        const inputClean = nogaji.replace(/\s+/g, '');
+        const noGajiWithSpace = inputClean.match(/.{1,2}/g).join(' ');
 
-        const finalURL = `${webAppURL}?nama=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(nogaji)}`;
+        const finalURL = `${webAppURL}?nama=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(noGajiWithSpace)}`;
 
         fetch(finalURL)
         .then(response => response.json())
@@ -70,7 +72,9 @@
 
             if (data.status === "success") {
                 resultBox.className = "result-box success";
-                resultBox.innerHTML = `Rekod dijumpai!<br>Jumlah Jam OT Anda ialah: <span class="ot-number">${data.jumlah_ot} Jam</span>`;
+                // Memastikan jika ada simbol RM dari Sheets, ia akan dibuang secara automatik
+                const jumlahOtClean = data.jumlah_ot.toString().replace(/RM/g, '').trim();
+                resultBox.innerHTML = `Rekod dijumpai!<br>Jumlah Bayaran OT Anda ialah: <span class="ot-number">RM${jumlahOtClean}</span>`;
             } else {
                 resultBox.className = "result-box error";
                 resultBox.innerHTML = `⚠️ Rekod Tidak Dijumpai.<br><small>Sila pastikan ejaan Nama Penuh dan No. Gaji adalah betul.</small>`;
