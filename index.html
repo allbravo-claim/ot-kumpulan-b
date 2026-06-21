@@ -68,12 +68,14 @@
         input[type="text"]:focus {
             outline: 2px solid #f1c40f;
         }
+        
+        /* 🔄 BUTANG DAH DITERBALIKKAN WARNA (Kuning Solid, Tulisan Hitam Pekat) */
         .btn-semak {
             width: 100%;
             padding: 18px;
-            background-color: #111111; /* Butang Hitam Flat */
+            background-color: #f1c40f; /* Latar Belakang Kuning Solid */
             border: none;
-            color: #f1c40f; /* Tulisan Kuning */
+            color: #111111; /* Tulisan Hitam Pekat */
             font-size: 13px;
             font-weight: 800;
             border-radius: 16px;
@@ -81,6 +83,10 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+            transition: opacity 0.2s;
+        }
+        .btn-semak:hover {
+            opacity: 0.9;
         }
 
         /* Kad Keputusan */
