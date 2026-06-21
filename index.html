@@ -3,244 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semakan OT - Bravorians</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <title>Semakan OT Pegawai - Bravorians</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f8f9fa; /* Latar belakang luar kelabu putih super clean */
+            background-color: #f7f9fa; /* Latar belakang bersih lembut */
             margin: 0;
-            padding: 20px 15px;
+            padding: 15px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .container {
-            max-width: 400px;
+        .wrapper {
+            max-width: 412px;
             width: 100%;
         }
-        /* Top Header */
+        /* Bahagian Atas / Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            padding: 0 5px;
         }
         .header-left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .menu-btn {
-            background-color: #ffcc00; /* Kuning Solid Bravorians */
-            width: 48px;
-            height: 48px;
-            border-radius: 16px;
+        .menu-icon {
+            background-color: #f1c40f; /* Petak Kuning */
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 4.5px;
+            gap: 4px;
         }
         .menu-line {
-            width: 20px;
-            height: 3px;
-            background-color: #000000;
+            width: 18px;
+            height: 2.5px;
+            background-color: #111111;
             border-radius: 2px;
         }
-        .logo-title {
-            font-style: italic;
-            font-weight: 800;
-            font-size: 20px;
-            color: #000000;
+        .logo-text {
+            font-family: 'Syncopate', sans-serif; /* Font baru premium & tajuk */
+            font-weight: 700;
+            font-size: 16px;
+            color: #111111;
             margin: 0;
             letter-spacing: -0.5px;
         }
         .btn-keluar {
-            background-color: #eff1f4;
+            font-family: 'Syncopate', sans-serif; /* Font baru premium */
+            background-color: #f0f2f5;
             border: none;
-            padding: 12px 20px;
+            padding: 12px 18px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 11px;
-            color: #000000;
-            letter-spacing: 0.5px;
+            font-size: 10px;
+            color: #111111;
+            cursor: pointer;
         }
 
-        /* Bahagian Logo Tengah */
+        /* Logo Tengah Rasmi */
         .middle-logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .middle-logo {
-            width: 120px; /* Saiz logo tengah yang kemas */
+            width: 110px;
             height: auto;
         }
 
-        /* Ruangan Borang Input */
-        .input-box {
+        /* Kotak Input Utama */
+        .input-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+            margin-bottom: 15px;
+        }
+        .form-group {
             margin-bottom: 20px;
         }
-        .input-box label {
+        label {
             display: block;
             font-size: 11px;
             font-weight: 700;
-            color: #8a94a6;
-            margin-bottom: 8px;
+            color: #111111; /* Ditukar kepada BOLD HITAM PEKAT */
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
-        .input-box input {
+        input[type="text"] {
             width: 100%;
             padding: 18px;
             border: none;
-            background-color: #f1f3f6; /* Input kelabu flat lembut */
-            border-radius: 16px;
+            background-color: #f4f6f8; /* Ruangan input kelabu lembut flat */
+            border-radius: 14px;
             box-sizing: border-box;
             font-size: 14px;
             font-weight: 700;
-            color: #000000;
+            color: #111111;
             font-family: 'Montserrat', sans-serif;
         }
-        .input-box input:focus {
-            outline: 2px solid #ffcc00;
+        input[type="text"]:focus {
+            outline: 2px solid #f1c40f;
         }
-
-        /* Butang Utama */
-        .btn-submit {
+        .btn-semak {
             width: 100%;
             padding: 18px;
-            background-color: #000000; /* Hitam Pekat Flat */
+            background-color: #111111; /* Butang Hitam Flat */
             border: none;
-            color: #ffcc00; /* Tulisan Kuning */
+            color: #f1c40f; /* Tulisan Kuning Emas */
             font-size: 13px;
             font-weight: 800;
-            border-radius: 16px;
+            border-radius: 14px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
-        /* Kad Keputusan SEBIJI macam Jadual Hari Ini */
-        .card-result {
-            margin-top: 30px;
-            background-color: #ffffff;
-            border-radius: 32px; /* Bucu sangat bulat */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            overflow: hidden;
+        /* Kad Keputusan Kuning Sebiji Macam Gambar */
+        .result-card {
+            background-color: #f1c40f; /* Latar Belakang Kuning Solid */
+            border-radius: 24px;
+            padding: 22px 20px;
             display: none; /* Sembunyi sebelum carian */
         }
-        .card-header {
-            background-color: #000000; /* Kepala Kad Hitam */
-            color: #ffcc00;
-            text-align: center;
-            padding: 14px;
+        .result-title {
             font-size: 11px;
             font-weight: 700;
+            color: #111111; /* BOLD HITAM PEKAT */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
         }
-        .card-body {
-            padding: 25px 20px;
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
         }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
+        .info-box {
+            background-color: rgba(255, 255, 255, 0.6); /* Petak Kuning Lembut */
+            border-radius: 16px;
+            padding: 14px;
         }
-        .info-left {
-            display: flex;
-            flex-direction: column;
-        }
-        .lbl-top {
+        .info-label {
+            font-size: 10px;
             font-weight: 700;
-            font-size: 13px;
-            color: #000000;
+            color: #111111; /* Ditukar kepada BOLD HITAM PEKAT */
+            text-transform: uppercase;
+            margin-bottom: 6px;
         }
-        .lbl-sub {
-            font-size: 11px;
-            color: #8a94a6;
-            margin-top: 2px;
-        }
-        .val-right {
-            font-weight: 700;
+        .info-value {
             font-size: 14px;
-            color: #000000;
-            text-align: right;
-        }
-        .val-amount {
             font-weight: 800;
-            font-size: 26px; /* Duit tebal dan besar */
-            color: #000000;
-            text-align: right;
+            color: #111111;
+            word-break: break-word;
         }
-
-        .loading-text {
+        .total-box {
+            background-color: #111111; /* Petak Hitam Jumlah Tuntutan */
+            border-radius: 16px;
+            padding: 18px;
             text-align: center;
-            font-size: 13px;
+        }
+        .total-label {
+            font-size: 10px;
             font-weight: 700;
-            color: #8a94a6;
-            margin-top: 15px;
+            color: #f1c40f;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .total-value {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff; /* Angka Duit Warna Putih */
+        }
+        .loading {
+            text-align: center;
             display: none;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="wrapper">
     <div class="header">
         <div class="header-left">
-            <div class="menu-btn">
+            <div class="menu-icon">
                 <div class="menu-line"></div>
-                <div class="menu-line" style="width: 14px; margin-right: -6px;"></div>
+                <div class="menu-line" style="width: 12px; margin-right: -6px;"></div>
                 <div class="menu-line"></div>
             </div>
-            <h1 class="logo-title">BRAVORIANS</h1>
+            <h1 class="logo-text">BRAVORIANS</h1>
         </div>
         <button class="btn-keluar">KELUAR</button>
     </div>
 
     <div class="middle-logo-container">
-        <img src="logo_bravorians.png" alt="Logo Bravorians B.S.I" class="middle-logo">
+        <img src="logo_bravorians.png" alt="Logo" class="middle-logo">
     </div>
 
-    <div class="form-container">
-        <div class="input-box">
-            <label>Nama Penuh</label>
+    <div class="input-card">
+        <div class="form-group">
+            <label for="nama">Nama Penuh</label>
             <input type="text" id="nama" placeholder="Masukkan Nama Penuh">
         </div>
-        <div class="input-box">
-            <label>No. Gaji</label>
+
+        <div class="form-group">
+            <label for="noGaji">No. Gaji</label>
             <input type="text" id="noGaji" placeholder="Masukkan No. Gaji">
         </div>
-        <button class="btn-submit" onclick="semakOT()">Semak Jumlah OT</button>
-        <div id="loading" class="loading-text">Menghubungi pangkalan data...</div>
+
+        <button class="btn-semak" onclick="semakOT()">Semak Jumlah OT</button>
+        <div id="loading" class="loading">Menyemak pangkalan data...</div>
     </div>
 
-    <div id="resultCard" class="card-result">
-        <div class="card-header">Keputusan Semakan</div>
-        <div class="card-body">
-            
-            <div class="info-row">
-                <div class="info-left">
-                    <span class="lbl-top">Nama Pegawai</span>
-                    <span class="lbl-sub" id="resTarikh">Semakan Aktif</span>
-                </div>
-                <div class="val-right" id="resNama">-</div>
+    <div id="resultCard" class="result-card">
+        <div class="result-title">Keputusan Semakan</div>
+        
+        <div class="grid-info">
+            <div class="info-box">
+                <div class="info-label">Nama Pegawai</div>
+                <div class="info-value" id="resNama">-</div>
             </div>
-
-            <hr style="border: none; border-top: 1px dashed #eff1f4; margin-bottom: 20px;">
-
-            <div class="info-row" style="margin-bottom: 0; align-items: center;">
-                <div class="info-left">
-                    <span class="lbl-top" id="resNoGaji">No. Gaji: -</span>
-                    <span class="lbl-sub">Jumlah Bayaran OT</span>
-                </div>
-                <div class="val-amount" id="jumlahTuntutan">RM 0.00</div>
+            <div class="info-box">
+                <div class="info-label">No. Gaji</div>
+                <div class="info-value" id="resNoGaji">-</div>
             </div>
+        </div>
 
+        <div class="total-box">
+            <div class="total-label">Jumlah Tuntutan OT</div>
+            <div class="total-value" id="jumlahTuntutan">RM 0.00</div>
         </div>
     </div>
 </div>
@@ -253,7 +262,7 @@ function semakOT() {
     const resultCard = document.getElementById('resultCard');
 
     if (!namaInput || !noGajiInput) {
-        alert("⚠️ Sila masukkan Nama Penuh dan No. Gaji.");
+        alert("⚠️ Sila isi ruangan Nama Penuh dan No. Gaji.");
         return;
     }
 
@@ -264,7 +273,7 @@ function semakOT() {
     const inputClean = noGajiInput.replace(/\s+/g, '');
     const noGajiWithSpace = inputClean.match(/.{1,2}/g).join(' ');
 
-    // Pautan Google Web App Asli Anda
+    // Google Sheets Web App URL Asli Anda
     const webAppURL = "https://script.google.com/macros/s/AKfycbz_9eI7B5n4i-A6R9Bfby6q2vGfD9GfW_qZ6b_oZ8Xb-D6-G6I7_9Z_Y-6_Z9_Z-6/exec"; 
     const finalURL = `${webAppURL}?name=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(noGajiWithSpace)}`;
 
@@ -277,20 +286,20 @@ function semakOT() {
             resultCard.style.display = "block";
             
             document.getElementById('resNama').innerText = nama;
-            document.getElementById('resNoGaji').innerText = `No. Gaji: ${noGajiInput}`;
+            document.getElementById('resNoGaji').innerText = noGajiInput;
             
             const jumlahOtClean = data.jumlah_ot.toString().replace(/RM/g, '').trim();
             document.getElementById('jumlahTuntutan').innerText = `RM ${jumlahOtClean}`;
         } else {
             resultCard.style.display = "block";
-            document.getElementById('resNama').innerText = "TIDAK DIJUMPAI";
-            document.getElementById('resNoGaji').innerText = "Ralat Data";
+            document.getElementById('resNama').innerText = "TIADA REKOD";
+            document.getElementById('resNoGaji').innerText = "Sila semak semula data.";
             document.getElementById('jumlahTuntutan').innerText = "RM 0.00";
         }
     })
     .catch(error => {
         loading.style.display = "none";
-        alert("Ralat! Sistem gagal memuatkan data.");
+        alert("Ralat! Gagal memuatkan data dari database.");
     });
 }
 </script>
