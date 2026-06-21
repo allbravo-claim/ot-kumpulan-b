@@ -20,8 +20,6 @@
             max-width: 412px;
             width: 100%;
         }
-
-        /* 🌟 Bahagian Atas Kosong, Logo Sahaja Di Tengah-Tengah */
         .top-logo-container {
             display: flex;
             justify-content: center;
@@ -29,11 +27,10 @@
             margin-bottom: 25px;
         }
         .top-logo {
-            width: 150px; /* Saiz logo yang kemas di skrin */
+            width: 150px; 
             height: auto;
+            display: block;
         }
-
-        /* Kotak Input Utama */
         .input-card {
             background-color: #ffffff;
             border-radius: 28px;
@@ -47,7 +44,7 @@
         label {
             display: block;
             font-size: 12px;
-            font-weight: 800; /* Tulisan hitam tebal pekat */
+            font-weight: 800; 
             color: #111111; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -68,14 +65,12 @@
         input[type="text"]:focus {
             outline: 2px solid #f1c40f;
         }
-        
-        /* 🔄 BUTANG KUNING SOLID, TULISAN HITAM PEKAT */
         .btn-semak {
             width: 100%;
             padding: 18px;
-            background-color: #f1c40f; /* Latar Belakang Kuning Solid */
+            background-color: #f1c40f; 
             border: none;
-            color: #111111; /* Tulisan Hitam Pekat */
+            color: #111111; 
             font-size: 13px;
             font-weight: 800;
             border-radius: 16px;
@@ -83,13 +78,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
-            transition: opacity 0.2s;
         }
-        .btn-semak:hover {
-            opacity: 0.9;
-        }
-
-        /* Kad Keputusan */
         .result-card {
             background-color: #f1c40f; 
             border-radius: 28px;
@@ -160,9 +149,8 @@
 <body>
 
 <div class="wrapper">
-    
     <div class="top-logo-container">
-        <img class="top-logo" alt="Bravorians Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIABAMAAAAsYw3nAAAABGdBTUEAALGPC/xhBQAAACVQTFRF///vEMXvEMXvEMXvEMXvEMXvEMXvEMXvEMXvEMXvEMXvEMXvEMXv873dGgAAAAZ0Uk5T//////8A5897AAAACXBIWXMAAAsTAAALEwEAmpwYAAADwElEQVR42u3bMW/TQBgG4Euds6bMmjJl1pQps6ZMmTVlyqwpU2ZNmTLrs96Zp6gSNo6vOIn9vfebebe7S/pIbyS/g20AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwNfSgRToQAqiX/86mIDZgRTIgRToQAqkQAqkQAqkQAqkQAqkQAp0YAVSkAIpSIEUyIAUyIAMSIEMSIAEyEACpEACZGCGDky9N/6xP5iAmYEUyIEU6EAKpEAKpEAKpEAKpEAKpEAKdGAFUpACKUiBFMiAFMiAFMiABEiABEiABMhAAqRABmYOf96Zp9gOzMCfKSAFUqADKZACKZACKZACKZACKZACKdCBFUhBCqQgBVIgA1IgA1IgARIgARIgARKgBclAArc7w2zP/R3BwATMDqRADqRAB1IgBVIgBVIgBVIgBVIgBTqwAilIgRSkQAqkQAakQAIkQAJkIAF60oFm9ubfO7MZmMDTAnIgBTqwAilIgRTIgBTIgARIgAxIgAxmZmbY/0ZgBgYmYAIkQAc60IEUzI7ZgRTIwOzMDqRADv3Z+H9gYALmGzgwAROgd2D/+b3b+7fMDGRAAnSggw6kQAdSMAOzY3YgBTIwO2YHMvifGZiACXwDBTgwAROgd2D/+b3bMzOQgd6BAh1IgQ6kYAZ6BwZSMAOzYzAgA98LgRkYmICBCZiACXwDBTgwAbPThz7MDCRgZtCHDEjBDHToP793OzMDGRAAAQEQUoCEFCDhx/6h6f2t2/eYgZ0O9CEFSBi63Zvd7s3OzAwdSEgBEpYFpIAdYAYGZqB3YEgBEnboQApmwAxMQAwGA2ZgBmbADEMHMjADZmAEYgAGzMAERCAgAgERCIhAQAR0oAMzMDtmYARiMBgwAzNgBnY4wA7sgAFSMAEDGJiBCRjAAAzswA6YgQESYIEMWICBCZABM8BAAizAAAnAwAwZMAEDYMAEDGDAAgxAACYggWwDEmA6M8NAAizAAAmwAAMkwALZBiSAYAZIYDYzgwRIgAQYIAEGSIDpzAwSSAIDZCADEmA6M8NAAgOQABmQgXwDEkgwAAlM9+beu/+XgYAEBv8XAsEgGAyCwf8FgkEQDAZBYDAIgsEgGAwGgeAPCIKBIBAEg2AQDAZBMAgEwSAIAsEgCATBIAgGgUAgvAcEgUAgEAiE94AgvAcEgeAfCASBYBAIBEIgEAiBwT8QCAZBMIhAIAQCYfB/gWAQCAbC++EQCATAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgH/nF896GgEwVfWvAAAAAElFTkSuQmCC">
+        <img class="top-logo" src="image_93d161.png" alt="Bravorians Logo">
     </div>
 
     <div class="input-card">
@@ -170,19 +158,16 @@
             <label for="nama">Nama Penuh</label>
             <input type="text" id="nama" placeholder="Masukkan Nama Penuh">
         </div>
-
         <div class="form-group">
             <label for="noGaji">No. Gaji</label>
             <input type="text" id="noGaji" placeholder="Masukkan No. Gaji">
         </div>
-
         <button class="btn-semak" onclick="semakOT()">Semak Jumlah OT</button>
         <div id="loading" class="loading">Menyemak pangkalan data...</div>
     </div>
 
     <div id="resultCard" class="result-card">
         <div class="result-title">Keputusan Semakan</div>
-        
         <div class="grid-info">
             <div class="info-box">
                 <div class="info-label">Nama Pegawai</div>
@@ -193,7 +178,6 @@
                 <div class="info-value" id="resNoGaji">-</div>
             </div>
         </div>
-
         <div class="total-box">
             <div class="total-label">Jumlah Tuntutan OT</div>
             <div class="total-value" id="jumlahTuntutan">RM 0.00</div>
@@ -220,7 +204,6 @@ function semakOT() {
     const inputClean = noGajiInput.replace(/\s+/g, '');
     const noGajiWithSpace = inputClean.match(/.{1,2}/g).join(' ');
 
-    // Google Sheets Web App URL Asli Anda
     const webAppURL = "https://script.google.com/macros/s/AKfycbz_9eI7B5n4i-A6R9Bfby6q2vGfD9GfW_qZ6b_oZ8Xb-D6-G6I7_9Z_Y-6_Z9_Z-6/exec"; 
     const finalURL = `${webAppURL}?name=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(noGajiWithSpace)}`;
 
@@ -228,13 +211,10 @@ function semakOT() {
     .then(response => response.json())
     .then(data => {
         loading.style.display = "none";
-        
         if (data.status === "success") {
             resultCard.style.display = "block";
-            
             document.getElementById('resNama').innerText = nama;
             document.getElementById('resNoGaji').innerText = noGajiInput;
-            
             const jumlahOtClean = data.jumlah_ot.toString().replace(/RM/g, '').trim();
             document.getElementById('jumlahTuntutan').innerText = `RM ${jumlahOtClean}`;
         } else {
@@ -250,6 +230,5 @@ function semakOT() {
     });
 }
 </script>
-
 </body>
 </html>
