@@ -6,229 +6,56 @@
     <title>Semakan OT Pegawai - Bravorians</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f7f9fa; 
-            margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .wrapper {
-            max-width: 412px;
-            width: 100%;
-        }
-        .top-logo-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-        .top-logo {
-            width: 150px; 
-            height: auto;
-            display: block;
-        }
-        .input-card {
-            background-color: #ffffff;
-            border-radius: 28px;
-            padding: 30px 22px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 22px;
-        }
-        label {
-            display: block;
-            font-size: 12px;
-            font-weight: 800; 
-            color: #111111; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 18px;
-            border: none;
-            background-color: #f1f3f6; 
-            border-radius: 16px;
-            box-sizing: border-box;
-            font-size: 14px;
-            font-weight: 700;
-            color: #111111;
-            font-family: 'Montserrat', sans-serif;
-        }
-        input[type="text"]:focus {
-            outline: 2px solid #f1c40f;
-        }
-        .btn-semak {
-            width: 100%;
-            padding: 18px;
-            background-color: #f1c40f; 
-            border: none;
-            color: #111111; 
-            font-size: 13px;
-            font-weight: 800;
-            border-radius: 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-        .result-card {
-            background-color: #f1c40f; 
-            border-radius: 28px;
-            padding: 25px 22px;
-            display: none; 
-        }
-        .result-title {
-            font-size: 12px;
-            font-weight: 800;
-            color: #111111; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 18px;
-        }
-        .grid-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .info-box {
-            background-color: rgba(255, 255, 255, 0.55); 
-            border-radius: 16px;
-            padding: 15px;
-        }
-        .info-label {
-            font-size: 10px;
-            font-weight: 800;
-            color: #111111; 
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .info-value {
-            font-size: 14px;
-            font-weight: 800;
-            color: #111111;
-            word-break: break-word;
-        }
-        .total-box {
-            background-color: #111111; 
-            border-radius: 18px;
-            padding: 20px;
-            text-align: center;
-        }
-        .total-label {
-            font-size: 11px;
-            font-weight: 800;
-            color: #f1c40f;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .total-value {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ffffff; 
-        }
-        .loading {
-            text-align: center;
-            display: none;
-            color: #111111;
-            font-weight: 700;
-            font-size: 13px;
-            margin-top: 15px;
-        }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f7f9fa; margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .wrapper { max-width: 412px; width: 100%; }
+        .input-card { background-color: #ffffff; border-radius: 28px; padding: 30px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        label { display: block; font-size: 12px; font-weight: 800; color: #111111; text-transform: uppercase; margin-bottom: 12px; }
+        input { width: 100%; padding: 18px; border: none; background-color: #f1f3f6; border-radius: 16px; box-sizing: border-box; font-size: 14px; font-weight: 700; margin-bottom: 20px; }
+        .btn-semak { width: 100%; padding: 18px; background-color: #f1c40f; border: none; color: #111111; font-size: 13px; font-weight: 800; border-radius: 16px; cursor: pointer; text-transform: uppercase; }
+        #hasil { margin-top: 20px; padding: 20px; border-radius: 18px; text-align: center; font-weight: 800; display: none; background-color: #111111; color: #f1c40f; }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="top-logo-container">
-        <img class="top-logo" src="image_93d161.png" alt="Bravorians Logo">
-    </div>
-
     <div class="input-card">
-        <div class="form-group">
-            <label for="nama">Nama Penuh</label>
-            <input type="text" id="nama" placeholder="Masukkan Nama Penuh">
-        </div>
-        <div class="form-group">
-            <label for="noGaji">No. Gaji</label>
-            <input type="text" id="noGaji" placeholder="Masukkan No. Gaji">
-        </div>
-        <button class="btn-semak" onclick="semakOT()">Semak Jumlah OT</button>
-        <div id="loading" class="loading">Menyemak pangkalan data...</div>
-    </div>
-
-    <div id="resultCard" class="result-card">
-        <div class="result-title">Keputusan Semakan</div>
-        <div class="grid-info">
-            <div class="info-box">
-                <div class="info-label">Nama Pegawai</div>
-                <div class="info-value" id="resNama">-</div>
-            </div>
-            <div class="info-box">
-                <div class="info-label">No. Gaji</div>
-                <div class="info-value" id="resNoGaji">-</div>
-            </div>
-        </div>
-        <div class="total-box">
-            <div class="total-label">Jumlah Tuntutan OT</div>
-            <div class="total-value" id="jumlahTuntutan">RM 0.00</div>
-        </div>
+        <label>No. Gaji</label>
+        <input type="text" id="noGaji" placeholder="Masukkan No. Gaji">
+        
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Masukkan Email Anda">
+        
+        <button class="btn-semak" onclick="semak()">Semak Jumlah OT</button>
+        <div id="hasil"></div>
     </div>
 </div>
 
 <script>
-function semakOT() {
-    const namaInput = document.getElementById('nama').value.trim();
-    const noGajiInput = document.getElementById('noGaji').value.trim();
-    const loading = document.getElementById('loading');
-    const resultCard = document.getElementById('resultCard');
-
-    if (!namaInput || !noGajiInput) {
-        alert("⚠️ Sila isi ruangan Nama Penuh dan No. Gaji.");
-        return;
-    }
-
-    loading.style.display = "block";
-    resultCard.style.display = "none";
-
-    const nama = namaInput.toUpperCase();
-    const inputClean = noGajiInput.replace(/\s+/g, '');
-    const noGajiWithSpace = inputClean.match(/.{1,2}/g).join(' ');
-
-    const webAppURL = "https://script.google.com/macros/s/AKfycbz_9eI7B5n4i-A6R9Bfby6q2vGfD9GfW_qZ6b_oZ8Xb-D6-G6I7_9Z_Y-6_Z9_Z-6/exec"; 
-    const finalURL = `${webAppURL}?name=${encodeURIComponent(nama)}&nogaji=${encodeURIComponent(noGajiWithSpace)}`;
-
-    fetch(finalURL)
-    .then(response => response.json())
+function semak() {
+    const nogaji = document.getElementById('noGaji').value;
+    const email = document.getElementById('email').value;
+    const hasil = document.getElementById('hasil');
+    
+    // 👇 TAMPAL URL WEB APP ANDA DI SINI
+    const url = "https://script.google.com/macros/s/AKfycbz8W36oD5NMtpR1dV367GIlRcfK4o-1kpyprXjalGL0heqtNVCvhIhyCHW2pcMb3Os5/exec"; 
+    
+    hasil.style.display = "block";
+    hasil.innerText = "Sedang menyemak...";
+    
+    fetch(`${url}?nogaji=${encodeURIComponent(nogaji)}&email=${encodeURIComponent(email)}`)
+    .then(r => r.json())
     .then(data => {
-        loading.style.display = "none";
         if (data.status === "success") {
-            resultCard.style.display = "block";
-            document.getElementById('resNama').innerText = nama;
-            document.getElementById('resNoGaji').innerText = noGajiInput;
-            const jumlahOtClean = data.jumlah_ot.toString().replace(/RM/g, '').trim();
-            document.getElementById('jumlahTuntutan').innerText = `RM ${jumlahOtClean}`;
+            hasil.style.backgroundColor = "#f1c40f";
+            hasil.style.color = "#111111";
+            hasil.innerText = "Jumlah OT: " + data.jumlah_ot;
         } else {
-            resultCard.style.display = "block";
-            document.getElementById('resNama').innerText = "TIADA REKOD";
-            document.getElementById('resNoGaji').innerText = "Sila semak semula data.";
-            document.getElementById('jumlahTuntutan').innerText = "RM 0.00";
+            hasil.style.backgroundColor = "#111111";
+            hasil.style.color = "#f1c40f";
+            hasil.innerText = "No. Gaji atau Email salah!";
         }
-    })
-    .catch(error => {
-        loading.style.display = "none";
-        alert("Ralat! Gagal memuatkan data dari database.");
     });
 }
 </script>
 </body>
-</html> 
+</html>
